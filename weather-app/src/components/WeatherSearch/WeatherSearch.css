@@ -1,0 +1,20 @@
+.card-body{
+    background-color: inherit;
+    border: 2px solid rgba(0, 0, 0, 0.24);
+    margin-bottom: 2%;
+}
+
+.weather-card{
+    margin: auto;
+    margin-top: 3%;
+    max-width: 95%;
+    min-width: 85%;
+}
+
+.button-get{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}

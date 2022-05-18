@@ -1,0 +1,15 @@
+.html, body{
+    background-image: url('../../images/fondo.jpeg');
+    background-size: cover;
+}
+
+.home-title h1{
+    font-size: 3em;
+    text-align: center;
+    font-family: 'Arvo', serif;
+    background: rgba(255, 255, 255, 0.185);
+}
+
+/*Import Fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bebas+Neue&family=Oleo+Script&display=swap');

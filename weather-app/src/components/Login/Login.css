@@ -1,0 +1,36 @@
+.login-container{
+ position: absolute;
+ left: 50%;
+ transform: translate(-50%, 10%);
+ border: 1px solid rgb(0, 0, 0);
+ padding: 40px;
+ background-color: rgba(0, 60, 255, 0.199);
+ height: 50%;
+ width: 25%;
+ font-family: 'Arvo', serif;
+ background-image: url('../../images/Clouds.jpg');
+ background-size: cover;
+}
+
+.login-second-container{
+    text-align: center;
+    font-size: 1.6em;
+    color: #fff;
+    text-shadow:1px 1px 2px black;
+}
+
+#button-login{
+    font-size: .5em;
+    margin-top: -20px;
+}
+
+@media (max-width:720px){
+    .login-container{
+        min-height: 50%;
+        min-width: 50%;
+       }
+       #button-login{
+        font-size: .5em;
+        margin-top: -50px;
+    }
+}

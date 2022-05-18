@@ -1,0 +1,50 @@
+.footer-container{
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 130px;
+    font-family:'Text Me One';
+    background-color: rgba(30, 54, 121, 0.753);
+    margin-top: -.5%;
+}
+
+.title-p{
+    font-size: 1.1em;
+    color:#fff;
+}
+
+.footer-body{
+    color:#fff;
+    font-size: 1.3em;
+    margin-top: 6px;
+    padding-top: 6px;
+}
+
+.icons:visited{
+    padding-left: 5px;
+    padding-right: 5px;
+    margin:auto;
+    color:#fff;
+}
+
+#github-icon{
+    color:rgb(255, 255, 255);
+    transition: all .5s;
+    font-size: 25px;
+}
+
+#linkedin-icon{
+    color:rgb(255, 255, 255);
+    transition: all .5s;
+    font-size: 25px;
+}
+
+
+#github-icon:hover{
+    color:rgb(107, 225, 255);
+}
+
+#linkedin-icon:hover{
+    color:rgb(107, 225, 255);
+}

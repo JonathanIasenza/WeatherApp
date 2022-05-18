@@ -1,0 +1,33 @@
+.principal-menu-container{
+   background-image: url('../../images/Clouds2.jpg'); 
+   min-width: 100vw;
+   min-height: 100vh;
+   background-size: 100%;
+   background-size: cover;
+}
+
+.container-title h1{
+   font-size: 3em;
+   text-align: center;
+   font-family: 'Arvo', serif;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   background: rgba(255, 255, 255, 0.185);
+   background-size: contain ;
+}
+
+#button-logout{
+   font-size: 1em;
+}
+
+.button-logout{
+   display: flex;
+   justify-content: center;
+}
+
+@media (max-width:720px) {
+   .button-logout{
+      justify-content: center;
+      margin: auto;
+   }
+}

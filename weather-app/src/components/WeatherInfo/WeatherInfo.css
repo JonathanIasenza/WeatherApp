@@ -1,0 +1,45 @@
+.cardBody{
+    text-align: center;
+    background-color: rgba(64, 165, 248, 0.171);
+    border: 2px solid rgba(0, 0, 0, 0.37);
+    padding: 3%;
+    border: none;
+    margin: 1%;
+}
+
+
+.capitalize{
+    text-transform: capitalize;
+}
+
+.weather-icon{
+    min-width: 50px;
+}
+
+.container-icons{
+    display: inline-flex;
+}
+
+.error{
+    max-width: 97%;
+    margin: auto;
+    margin-bottom: 2%;
+}
+
+button{
+    background-color: inherit;
+    border: none;
+    margin: left;
+}
+
+.add, .remove{
+    text-align: right;
+}
+
+.addIcon{
+    filter: drop-shadow(1px 1px 1px rgb(0, 0, 0));
+}
+
+.removeIcon{
+    filter: drop-shadow(1px 1px 1px rgb(255, 255, 255));
+}

@@ -1,0 +1,10 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre_completo": "Jonathan Iasenza",
+            "username": "jiasenza",
+            "password": "827ccb0eea8a706c4c34a16891f84e7b"
+        }
+    ]
+}
