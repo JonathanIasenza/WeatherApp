@@ -5,7 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherSearch from '../WeatherSearch/WeatherSearch';
 import WeatherInfo from  '../WeatherInfo/WeatherInfo';
 import FavoriteList from '../Favorites/FavoriteList';
-import logo from '../../images/logo.png'
+import logo from '../../images/logo.png';
+import { confirmAlert } from 'react-confirm-alert'; 
+import './react-confirm-alert.css'
 
 const cookies = new Cookies();
 
@@ -22,6 +24,7 @@ class MenuLoggedIn extends Component {
             favorites: [],
             favoriteIcon: true
 }
+
 
 getWeather = async e => {
       e.preventDefault();
@@ -91,14 +94,15 @@ this.setState({
 }
 
 removeItem = (e) => {
-    var option = window.confirm("Are u sure that u want to delete the city " + e.name + "?");
     let cityName = JSON.parse(localStorage.getItem('cityName'));
     let cityTemp = this.state.favorites;
+    var option = true;
     let city = cityTemp.map((e => {
     return e.name
     }));
 
     if(option){
+        const deleteFromTable = () =>{
         var contador = 0;
         var list = cityName.map((es => {           
             if(es.name === city){
@@ -106,6 +110,7 @@ removeItem = (e) => {
            }
            return contador++;
         }));
+        
 
         const filtered = cityName.filter(cityName => cityName.id !== e.id);
         localStorage.setItem('cityName', JSON.stringify(filtered));
@@ -115,6 +120,22 @@ removeItem = (e) => {
           favoriteIcon: true
         }));
       }
+      
+      option = confirmAlert({
+        title: 'Confirm to delete',
+          message: 'Are you sure that you want to delete the city ' + e.name + '?',
+              buttons: [
+          {
+            autoFocus: true, 
+            label: 'Yes',
+            onClick: () => deleteFromTable(),
+          },
+          {
+            label: 'No',
+          }
+        ],
+      });
+    }
     }
 
 

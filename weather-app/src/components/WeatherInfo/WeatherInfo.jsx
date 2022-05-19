@@ -16,8 +16,8 @@ class WeatherInfo extends Component{
 render(){
         var props = this.props
         var favorites = JSON.parse(localStorage.getItem('cityName')) || [];
-        var favoritesMap = favorites.map((el => {return el.name}))
-        var favoriteCity = favoritesMap.includes(this.props.city, 0)
+        var favoritesMap = favorites.map((el => {return el.name}));
+        var favoriteCity = favoritesMap.includes(this.props.city, 0);
     return (
         <div>
             

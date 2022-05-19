@@ -2,14 +2,14 @@ import React from "react";
 import { IoMdRemoveCircleOutline } from 'react-icons/io';
 import { FiAlertTriangle } from 'react-icons/fi';
 import { Table, Button } from 'reactstrap';
-// import { ReactNotifications, Store } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
+import Notification from '../Notification/Notification';
 
 
 function FavoriteList (props){
- 
+
    const { favorites } = props;
    var local = JSON.parse(localStorage.getItem('cityName')) || [];
+    
     return (
       <div>
         {favorites[0] ? 
@@ -19,12 +19,11 @@ function FavoriteList (props){
                     <th>City</th>
                     <th>Temperature in C°</th>
                     <th>Remove from favorites</th>
+                    <th>Information</th>
                 </tr>
             </thead>
             <tbody>
                 {favorites.map((element) => (
-                  <div>
-                    <button onClick={''}>Information</button>
                     <tr key={element? element.id : ''} className="table-user">
                         <td>{element? element.name : ''}</td>
                         <td>{element.main.temp > 30 ? <div>{element.main.temp}° 
@@ -34,12 +33,23 @@ function FavoriteList (props){
                         <div>{element.main.temp}°</div>}</td>
                         <td><Button color="danger" 
                         onClick={() => props.removeItem(element)}><IoMdRemoveCircleOutline/></Button></td>
-                    </tr></div>
+                        <td><Notification element={element}/></td>
+                    </tr>
                   )
                 )}        
             </tbody>
             </Table >
-            : <Table className="table table-striped table-dark text-center">
+            : 
+            local.length < 1 || local === null ? 
+              <Table  className="table table-striped table-dark text-center">
+                <thead>
+                  <tr>
+              <th>Add your favorites cities!</th>
+              </tr>
+              </thead>
+              </Table>
+             : 
+            <Table className="table table-striped table-dark text-center">
                <thead>
                 <tr id="tab">
                     <th>City</th>
@@ -49,19 +59,10 @@ function FavoriteList (props){
                 </tr>
             </thead>
             <tbody>
-              {local.length < 1 || local === null ? 
-             <>
-               <tr className="text-center">
-             <td></td>
-             <td>Add your favorites cities!</td>
-             <td></td>
-             </tr>
-             </>
-            :  
+
             <>
             {local.map((element) => (
                <tr key={element? element.id : ''} className="table-user">
-                 {/* <td><><ReactNotifications /> <Home element={element}/></></td> */}
                 <td>{element? element.name : ''}</td>
                 <td>{element.main.temp > 30 ? <div>
                   {element.main.temp}° 
@@ -71,70 +72,20 @@ function FavoriteList (props){
                         <div>{element.main.temp}°</div>}</td>
                 <td><Button color="danger" 
                  onClick={() => props.removeItem(element)}><IoMdRemoveCircleOutline/></Button></td>
+                 <td><Notification element={element}/></td>
                </tr>
                ))}
             </>
-         }
-                   
             </tbody>
-              </Table>}
+        </Table>
+        
+        }
+         
+
   </div>
     );
 }
 
-// function Home(props){
-//          let element = props.element;
-//          const handleOnClickInformation = () =>{
-           
-//          if(element.main.temp > 30){
-//              Store.addNotification({
-//                  title: 'Temperature is high!',
-//                  message: 'Temperature High (more than 30°)',
-//                  type: 'danger',
-//                  container: 'bottom-right',
-//                  insert: "bottom",
-//                  animationIn: ["animate__animated", "animate__fadeIn"],
-//                  animationOut: ["animate__animated", "animate__fadeOut"],
-         
-//                  dismiss:{
-//                    duration: 5000,
-//                    onScreen: true
-//                  }
-//                })
-//          }
-
-//          if(element.main.temp < 5){
-//              Store.addNotification({
-//                  title: 'Temperature is low!',
-//                  message: 'Temperature low (less than 5°)',
-//                  type: 'info',
-//                  insert: "bottom",
-//                  container: 'bottom-right',
-//                  animationIn: ["animate__animated", "animate__fadeIn"],
-//                  animationOut: ["animate__animated", "animate__fadeOut"],
-         
-//                  dismiss:{
-//                    duration: 5000,
-//                    onScreen: true
-//                  }
-//                })
-//            }
-//            if(element.main.temp < 30 && element.main.temp > 5){
-//                  return ''
-//            }
-//      }
-
-// return(
-//      <div>
-//        <button
-//        className="btn btn-info"
-//        onClick={handleOnClickInformation}>
-//         Information
-//        </button>
-//      </div>
-//      )
-
-// }
 export default FavoriteList;
 
 

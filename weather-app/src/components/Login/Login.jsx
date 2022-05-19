@@ -5,8 +5,10 @@ import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
 import './Login.css';
+import { confirmAlert } from 'react-confirm-alert'; 
 
-const baseURL = "http://localhost:3001/usuarios";
+
+const baseURL = "http://localhost:3002/usuarios";
 const cookies = new Cookies();
 
 class Login extends Component {
@@ -44,11 +46,26 @@ logIn = async () => {
         cookies.set('id', res.id, {path: "/"});
         cookies.set('username', res.username, {path: "/"});
         cookies.set('nombre_completo', res.nombre_completo, {path: "/"});
-        alert(`Welcome ${res.nombre_completo}`)
-        window.location.href='./menu'
-        
+        confirmAlert({
+            title: 'Login success!',
+              message: 'Welcome ' + res.nombre_completo + '!',
+              buttons: [{
+                   label: 'Continue',
+                   onClick: () => continueToMenu()
+              }
+              ]
+          });        
     }else {
-        alert('The username or password are wrongs.')
+        confirmAlert({
+            title: 'Login failed!',
+              message: 'The username of password are incorrects, please try again. ',
+              buttons: [{
+                label: 'Close',
+              }]
+          });    
+        }
+    const continueToMenu = () => {
+        window.location.href='./menu'
     }
   })
   .catch(error => {

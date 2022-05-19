@@ -1,70 +1,37 @@
-import { Store } from 'react-notifications-component';
-import React, { Component } from 'react';
-import FavoriteList from '../Favorites/FavoriteList';
+import { Toaster, toast } from 'react-hot-toast';
+import React from 'react';
+import { GrCircleInformation } from 'react-icons/gr'
 
-class Notification extends Component {
-    constructor(props) {
-        super(props);
-        this.state={
-            high: [],
-            low: []
-        }
-      }
+const Notify = (props) =>{
 
-    render(){
-        let localTemp = this.props.localTemp
-        let highTemperature = localTemp.filter((e => e > 30));
-        let lowTemperature = localTemp.filter((e => e < 5));
-        console.log('high', this.state.high)
-        console.log('high', this.state.low)
+  const notification = () => {
+  let element = props.element;
+  let temperature = element.main.temp;
 
-            const handleOnClickInformation = () =>{
-                    this.setState({
-                        high: highTemperature,
-                        low: lowTemperature
-            });
+  if(temperature > 30){
+     toast(`High Temperature in ${element.name}!`, {
+      position: 'bottom-right',
+      icon: '🔥',
+    });
+  }
+  if(temperature < 5){
+     toast(`Low Temperature in ${element.name}!`, {
+      icon: '❄',
+      position: 'bottom-right',
+    });
+    }
+  if(temperature < 30 && temperature > 5){
+    toast(`No information for ${element.name}.`, {
+      icon: '🛈',
+      position: 'bottom-right',
+    });
+    }
+  }
 
-            if(this.state.high){
-                Store.addNotification({
-                    title: 'Temperature is high!',
-                    message: 'Temperature High (more than 30°)',
-                    type: 'danger',
-                    container: 'bottom-right',
-                    insert: "bottom",
-                    animationIn: ["animated","fadeIn"],
-                    animationOut: ["animated","fadeOut"],
-            
-                    dismiss:{
-                      duration: 5000
-                    }
-                  })
-            }
-            if(this.state.low){
-                Store.addNotification({
-                    title: 'Temperature is low!',
-                    message: 'Temperature low (less than 5°)',
-                    type: 'info',
-                    container: 'bottom-right',
-                    insert: "bottom",
-                    animationIn: ["animated","fadeIn"],
-                    animationOut: ["animated","fadeOut"],
-            
-                    dismiss:{
-                      duration: 5000
-                    }
-                  })
-              }
-              if(!this.state.low && !this.state.high){
-                    alert('No notifications yet');
-              }
-        }
-        
-         return (
-           <button onClick={() => handleOnClickInformation()}>ASD</button>
-         )
-}
+      return(
+      <div><Toaster/>
+      <button className='btn btn-light' onClick={notification}><GrCircleInformation/></button></div> 
+      )
 }
 
-
-
-export default Notification;
+export default Notify;
