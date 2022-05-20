@@ -32,7 +32,7 @@ getWeather = async e => {
       const cityValue = city.value;
 
       const api_key = '55ce1546046cfaa4de51646141144169';
-      const api_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${api_key}&units=metric`;
+      const api_url = `http://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=${api_key}&units=metric`;
       const response = await fetch(api_url);
       const data = await response.json();
 
