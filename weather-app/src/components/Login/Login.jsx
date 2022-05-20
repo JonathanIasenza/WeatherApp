@@ -8,7 +8,7 @@ import './Login.css';
 import { confirmAlert } from 'react-confirm-alert'; 
 
 
-const baseURL = "http://localhost:3002/usuarios";
+const baseURL = "https://api.jsonbin.io/b/628706a6449a1f3821e540b1/1";
 const cookies = new Cookies();
 
 class Login extends Component {
@@ -41,7 +41,7 @@ logIn = async () => {
       return response.data;
   })
   .then(response => {
-    if(response.length > 0){
+    if(response[0].username === this.state.form.username && response[0].password === md5(this.state.form.password)){
         var res = response[0];
         cookies.set('id', res.id, {path: "/"});
         cookies.set('username', res.username, {path: "/"});
