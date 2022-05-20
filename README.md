@@ -15,3 +15,8 @@ Hello! Welcome to my Weather App.
 4) Log in with the user "jiasenza" and the password "12345" (it is encrypted with md5).
 
 5) Search for the city you want at any time, and add them to your favorites!
+
+
+I uploaded the project to Firebase, here you can see the link:
+https://weatherapp-iasenza.web.app
+(Note: in some browsers like Opera the api does not work due to https problems, but in chrome and cell phones it works 100%)
