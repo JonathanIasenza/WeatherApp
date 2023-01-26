@@ -8,7 +8,7 @@ import './Login.css';
 import { confirmAlert } from 'react-confirm-alert'; 
 
 
-const baseURL = "https://api.jsonbin.io/b/628706a6449a1f3821e540b1/1";
+const baseURL = "https://api.jsonbin.io/v3/b/628706a6449a1f3821e540b1/1";
 const cookies = new Cookies();
 
 class Login extends Component {
